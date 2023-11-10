@@ -3,5 +3,38 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.greengram.user.UserMapper">
+    <insert id="insUser">
+        INSERT INTO t_user
+        SET uid = #{uid},
+        upw = #{upw},
+        nm = #{nm},
+        pic = #{pic}
+    </insert>
 
+    <select id="selAllUser">
+        SELECT uid, upw, nm, pic, created_at as createdAt
+        FROM t_user
+    </select>
+
+    <select id="selUserByUid">
+        select upw from t_user
+        where uid = #{uid}
+    </select>
+
+    <select id="selOneUser">
+        SELECT uid
+        FROM t_user
+        WHERE iuser = #{iuser}
+    </select>
+
+    <update id="updUser">
+        UPDATE t_user
+        SET
+        WHERE
+    </update>
+
+    <delete id="delUser">
+        DELETE FROM t_user
+        WHERE
+    </delete>
 </mapper>
