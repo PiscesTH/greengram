@@ -30,7 +30,7 @@ public class UserController {
 
     @PostMapping("signin")
     public ResVo login(@RequestBody UserSigninDto dto){
-        int result = service.singin(dto);
+        int result = service.singinSol(dto);
         return new ResVo(result);
     }
 }
