@@ -24,7 +24,7 @@ public class UserService {
     }
 
     //1 : 아이디/비번 맞췄음, 2:아이디 없음, 3: 비밀번호 다름
-    public int singinSol(UserSigninDto dto){
+    public int signin(UserSigninDto dto){
         int result = 3;
         String savedUpw = mapper.selUserByUid(dto.getUid());
         if (savedUpw == null){
@@ -36,7 +36,7 @@ public class UserService {
     }
 
     // 1 : 아이디/비번 맞췄음, 2:아이디 없음, 3: 비밀번호 다름
-    public int singin(UserSigninDto dto) {
+    public int singin2(UserSigninDto dto) {
         List<UserSelAllVo> list = mapper.selAllUser();
         for (UserSelAllVo userSelAllVo : list) {
             if (userSelAllVo.getUid().equals(dto.getUid()) && userSelAllVo.getUpw().equals(dto.getUpw())) {
