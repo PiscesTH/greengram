@@ -8,4 +8,11 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class FeedService {
     private final FeedMapper mapper;
+
+    public ResVo insFeed(FeedInsDto dto){
+        FeedInsProcDto pDto = new FeedInsProcDto(dto);
+        System.out.println(dto);
+        System.out.println(pDto);
+        return null;
+    }
 }
