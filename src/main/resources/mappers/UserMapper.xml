@@ -7,8 +7,10 @@
         INSERT INTO t_user
         SET uid = #{uid},
         upw = #{upw},
-        nm = #{nm},
-        pic = #{pic}
+        nm = #{nm}
+        <if test="pic != null and pic != '' ">
+            , pic = #{pic}
+        </if>
     </insert>
 
     <select id="selAllUser">
