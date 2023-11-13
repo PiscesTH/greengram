@@ -4,6 +4,8 @@ import com.green.greengram.feed.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequiredArgsConstructor
@@ -17,9 +19,8 @@ public class FeedController {
         return null;
     }
     @GetMapping
-    public int getFeed(int page){
-        System.out.println(page);
-        return 0;
+    public List<FeedSelVo> getFeed(int page){
+        return service.getFeed(page);
         //http://localhost:8080/api/feed?page=3 브라우저 로 요청하면 page = 3 저장됨.
     }
 }
