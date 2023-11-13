@@ -28,7 +28,7 @@ public class UserController {
         return service.selOneUser(iuser);
     }
 
-    @PostMapping("signin")
+    @PostMapping("/signin")
     public ResVo login(@RequestBody UserSigninDto dto){
         int result = service.singinSol(dto);
         return new ResVo(result);
