@@ -3,10 +3,31 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.greengram.feed.FeedMapper">
-    <insert id="insFeed" useGeneratedKeys="true" keyProperty="ifeed">
+    <!-- useGeneratedKeys : 생성된 레코드의 pk값 ? autoincrement 된 값 가져올 때 사용 / keyProperty : 데이터 담는 멤버필드 위치 -->
+    <insert id="insFeed" useGeneratedKeys="true" keyProperty="ifeed">     <!-- 방금 입력한 레코드의 pk(ifeed) 값 받아오는 방법 -->
         INSERT INTO t_feed
         SET iuser = #{iuser},
         contents = #{contents},
         location = #{location}
     </insert>
+
+    <!-- t_feed_pics -->
+    <insert id="insFeedPic">
+        INSERT INTO t_feed_pics
+        (ifeed, pic)
+        VALUES
+        <foreach collection="pics" item="pic" open="(" close=")" separator="),(">
+        <!-- for(String pic : pics) -->
+            #{ifeed}, #{pic}
+        </foreach>
+    </insert>
+
+    <select id="selFeed">
+        SELECT A.ifeed, A.contents, A.location, A.iuser, B.nm AS writer, A.created_at AS createdAt
+        FROM t_feed A
+        JOIN t_user B
+        ON A.iuser = B.iuser
+        ORDER BY A.ifeed DESC
+        LIMIT #{startIdx}, #{rowCount}
+    </select>
 </mapper>

@@ -16,4 +16,10 @@ public class FeedController {
         service.insFeed(dto);
         return null;
     }
+    @GetMapping
+    public int getFeed(int page){
+        System.out.println(page);
+        return 0;
+        //http://localhost:8080/api/feed?page=3 브라우저 로 요청하면 page = 3 저장됨.
+    }
 }

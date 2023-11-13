@@ -11,8 +11,10 @@ public class FeedService {
 
     public ResVo insFeed(FeedInsDto dto){
         FeedInsProcDto pDto = new FeedInsProcDto(dto);
-        System.out.println(dto);
-        System.out.println(pDto);
-        return null;
+        int result = mapper.insFeed(pDto);
+
+        FeedPicsInsProcDto p2Dto = new FeedPicsInsProcDto(pDto.getIfeed(),dto.getPics());
+        int result2 = mapper.insFeedPic(p2Dto);
+        return new ResVo(pDto.getIfeed());
     }
 }
