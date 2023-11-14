@@ -33,19 +33,18 @@ public class FeedService {
         for (FeedSelVo feedSelVo : result) {
             ifeeds.add(feedSelVo.getIfeed());    //ifeeds에 FeedSelVo의 ifeed값 하나씩 add
             feedMap.put(feedSelVo.getIfeed(), feedSelVo);
-            //key = ifeed, value = ifeed(key)값을 가진 FeedSelVo의 주소값 Map에 저장
+            //key = ifeed, value = ifeed(key)값을 가진 FeedSelVo 객체의 주소값 Map에 저장
         }
-        List<FeedPicsVo> pics = mapper.selFeedPics(ifeeds);
-        System.out.println(pics);
-        for (FeedPicsVo feedPicsVo : pics) {
-            FeedSelVo feedVo = feedMap.get(feedPicsVo.getIfeed());
-            //FeedSelVo의 ifeed 값을 key로 Map에 저장된 FeedSelVo를 호출하여 주소값 저장
-            feedVo.getPics().add(feedPicsVo.getPic());
-            System.out.println(feedVo);
-            //FeedSelVo의 멤버필드 List<String> pics 주소값으로 접근하여 pics에 add
+        if (!ifeeds.isEmpty()) {
+            List<FeedPicsVo> pics = mapper.selFeedPics(ifeeds);
+            for (FeedPicsVo feedPicsVo : pics) {
+                FeedSelVo feedVo = feedMap.get(feedPicsVo.getIfeed());
+                //FeedSelVo의 ifeed 값을 key로 Map에 저장된 FeedSelVo를 호출하여 주소값 저장
+                feedVo.getPics().add(feedPicsVo.getPic());
+                //FeedSelVo의 멤버필드 List<String> pics 주소값으로 접근하여 pics에 FeedPicsVo의 pic 값 add
+            }
         }
         return result;
-
     }
 
     public List<FeedSelVo> getFeed(int page) {
