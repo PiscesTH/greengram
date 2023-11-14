@@ -14,12 +14,12 @@ public class FeedController {
     private final FeedService service;
 
     @PostMapping
-    public ResVo insFeed(@RequestBody FeedInsDto dto){
-        service.insFeed(dto);
-        return null;
+    public ResVo insFeed(@RequestBody FeedInsDto dto) {  //form-data로 받을 때는 @RequestBody 없이 작성
+        return service.insFeed(dto);
     }
+
     @GetMapping
-    public List<FeedSelVo> getFeed(int page){
+    public List<FeedSelVo> getFeed(int page) {
         return service.getFeed(page);
         //http://localhost:8080/api/feed?page=3 브라우저 로 요청하면 page = 3 저장됨.
     }
