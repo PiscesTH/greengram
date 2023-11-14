@@ -60,7 +60,7 @@ public class FeedService {
 
             map.put(feedSelVo.getIfeed(), feedSelVo);
         }
-        if (iFeedList.size() > 0) {
+        if (!iFeedList.isEmpty()) {
             List<FeedPicsVo> picsList = mapper.selFeedPics(iFeedList);
             for (FeedPicsVo feedPicsVo : picsList) {
                 FeedSelVo feedVo = map.get(feedPicsVo.getIfeed());
