@@ -1,0 +1,23 @@
+JvmtiExport can_access_local_variables 0
+JvmtiExport can_hotswap_or_post_breakpoint 0
+JvmtiExport can_post_on_exceptions 0
+# 221 ciObject found
+ciInstanceKlass java/lang/Cloneable 1 0 7 100 1 100 1 1 1
+instanceKlass java/util/concurrent/locks/ReentrantReadWriteLock$Sync$HoldCounter
+instanceKlass org/apache/coyote/http11/Constants
+instanceKlass org/apache/tomcat/util/buf/HexUtils
+instanceKlass org/apache/coyote/Constants
+instanceKlass org/springframework/http/StreamingHttpOutputMessage
+instanceKlass org/springframework/http/server/ServletServerHttpResponse
+instanceKlass org/springframework/web/servlet/resource/HttpResource
+instanceKlass org/apache/tomcat/util/http/parser/MediaType
+instanceKlass org/springframework/web/util/UriUtils
+instanceKlass org/springframework/web/servlet/handler/AbstractHandlerMapping$CorsInterceptor
+instanceKlass java/util/ArrayList$SubList$2
+instanceKlass jakarta/servlet/ServletRequestWrapper
+instanceKlass org/apache/catalina/core/ApplicationDispatcher$State
+instanceKlass org/apache/catalina/core/ApplicationDispatcher
+instanceKlass org/apache/catalina/AsyncDispatcher
+instanceKlass org/apache/catalina/core/ApplicationContext$DispatchData
+instanceKlass org/springframework/web/servlet/support/RequestContext
+instanceKlass org/springframework/web/servlet/support/RequestContextUtils
