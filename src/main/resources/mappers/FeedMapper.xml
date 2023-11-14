@@ -30,4 +30,13 @@
         ORDER BY A.ifeed DESC
         LIMIT #{startIdx}, #{rowCount}
     </select>
+
+    <select id="selFeedPics">
+        SELECT ifeed, pic
+        FROM t_feed_pics
+        WHERE ifeed IN
+        <foreach collection="list" item ="num" open="(" close=")" separator=",">
+            #{num}
+        </foreach>
+    </select>
 </mapper>
