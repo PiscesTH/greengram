@@ -57,7 +57,6 @@ public class FeedService {
         Map<Integer, FeedSelVo> map = new HashMap<>();
         for (FeedSelVo feedSelVo : result) {
             iFeedList.add(feedSelVo.getIfeed());
-
             map.put(feedSelVo.getIfeed(), feedSelVo);
         }
         if (!iFeedList.isEmpty()) {
