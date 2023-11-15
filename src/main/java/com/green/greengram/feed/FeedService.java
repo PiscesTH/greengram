@@ -68,4 +68,13 @@ public class FeedService {
         }
         return result;
     }
+
+    //1:좋아요  2:취소
+    public ResVo procFav(FeedFavProcDto dto) {
+        int result = mapper.delFeedFav(dto);
+        if (result == 1) {
+            return new ResVo(2);
+        }
+        return new ResVo(mapper.insFeedFav(dto));
+    }
 }

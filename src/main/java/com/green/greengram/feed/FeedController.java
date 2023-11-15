@@ -23,4 +23,12 @@ public class FeedController {
         return service.getFeed(page);
         //http://localhost:8080/api/feed?page=3 브라우저 로 요청하면 page = 3 저장됨.
     }
+
+    @GetMapping("/{ifeed}/fav")
+    public ResVo procFav(@PathVariable int ifeed, int iuser) {
+        return service.procFav(FeedFavProcDto.builder()
+                .ifeed(ifeed)
+                .iuser(iuser)
+                .build());
+    }
 }

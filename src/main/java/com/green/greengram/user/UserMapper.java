@@ -10,6 +10,7 @@ import java.util.List;
 public interface UserMapper {
     int insUser(UserInsDto dto);
     List<UserSelAllVo> selAllUser();
-    UserSelOneVo selOneUser(int iuser);
+    UserSelOneVo selOneUser(String uid);
     String selUserByUid(String uid);
+    UserLoginVo selLoginInfo(String uid);
 }

@@ -24,9 +24,9 @@
     </select>
 
     <select id="selOneUser">
-        SELECT uid
+        SELECT iuser, nm, pic
         FROM t_user
-        WHERE iuser = #{iuser}
+        WHERE uid = #{uid}
     </select>
 
     <update id="updUser">
@@ -39,4 +39,10 @@
         DELETE FROM t_user
         WHERE
     </delete>
+
+    <select id="selLoginInfo">
+        SELECT iuser, nm, pic
+        FROM t_user
+        WHERE uid = #{uid}
+    </select>
 </mapper>

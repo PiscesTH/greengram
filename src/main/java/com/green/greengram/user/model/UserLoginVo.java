@@ -1,12 +1,12 @@
 package com.green.greengram.user.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.*;
 
 @Getter
-@AllArgsConstructor
-public class UserSelOneVo {
+@Builder
+public class UserLoginVo {
     private int iuser;
     private String nm;
     private String pic;
+    private int result;
 }

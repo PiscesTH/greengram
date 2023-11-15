@@ -39,4 +39,14 @@
             #{num}
         </foreach>
     </select>
+
+    <delete id="delFeedFav">
+        DELETE FROM t_favorite
+        WHERE ifeed = #{ifeed} AND iuser = #{iuser}
+    </delete>
+    <insert id="insFeedFav">
+        INSERT INTO t_favorite
+        SET iuser = #{iuser},
+        ifeed = #{ifeed}
+    </insert>
 </mapper>
