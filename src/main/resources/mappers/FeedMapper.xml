@@ -23,10 +23,15 @@
     </insert>
 
     <select id="selFeed">
-        SELECT A.ifeed, A.contents, A.location, A.iuser, B.nm AS writer, A.created_at AS createdAt
+        SELECT A.ifeed, A.contents, A.location, A.iuser,
+            B.nm AS writer, A.created_at AS createdAt,
+            if(C.ifeed > 0, 1, 0) AS isFav
         FROM t_feed A
         JOIN t_user B
         ON A.iuser = B.iuser
+        LEFT JOIN t_favorite C
+        ON A.iuser = C.iuser
+        AND C.iuser = #{iuser}
         ORDER BY A.ifeed DESC
         LIMIT #{startIdx}, #{rowCount}
     </select>

@@ -47,10 +47,11 @@ public class FeedService {
         return result;
     }
 
-    public List<FeedSelVo> getFeed(int page) {
+    public List<FeedSelVo> getFeed(int page, int iuser) {
         int rowCnt = 5;
         List<FeedSelVo> result = mapper.selFeed(FeedSelDto.builder()
                 .startIdx((page - 1) * rowCnt)
+                .iuser(iuser)
                 .rowCount(rowCnt).build());
         List<Integer> iFeedList = new ArrayList<>();
         Map<Integer, FeedSelVo> map = new HashMap<>();

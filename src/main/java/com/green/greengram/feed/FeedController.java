@@ -19,8 +19,8 @@ public class FeedController {
     }
 
     @GetMapping
-    public List<FeedSelVo> getFeed(int page) {
-        return service.getFeed(page);
+    public List<FeedSelVo> getFeed(int page, int iuser) {
+        return service.getFeed(page, iuser);
         //http://localhost:8080/api/feed?page=3 브라우저 로 요청하면 page = 3 저장됨.
     }
 
