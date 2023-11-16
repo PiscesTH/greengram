@@ -45,4 +45,18 @@
         FROM t_user
         WHERE uid = #{uid}
     </select>
+    
+    <select id="selUserProfileInfo">
+        SELECT COUNT(ifeed) AS feedCnt, IFNULL(B.favCnt, 0) AS favCnt
+        FROM t_feed A
+        INNER JOIN (
+            SELECT B.iuser, COUNT(A.ifeed) AS favCnt
+            FROM t_favorite A
+            JOIN t_feed B
+            ON A.ifeed = B.ifeed
+            AND B.iuser = #{iuser}
+            ) B
+        ON A.iuser = B.iuser
+        WHERE A.iuser = #{iuser}
+    </select>
 </mapper>

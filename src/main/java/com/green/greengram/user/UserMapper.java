@@ -13,4 +13,5 @@ public interface UserMapper {
     UserSelOneVo selOneUser(String uid);
     String selUserByUid(String uid);
     UserLoginVo selLoginInfo(String uid);
+    UserProfileInfoVo selUserProfileInfo(int iuser);
 }

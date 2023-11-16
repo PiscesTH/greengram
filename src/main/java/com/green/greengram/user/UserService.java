@@ -58,6 +58,11 @@ public class UserService {
         return 2;
     }
 
+    public UserProfileInfoVo getUserProfileInfo(int iuser){
+        return mapper.selUserProfileInfo(iuser);
+    }
+
+
 /*    public UserLoginVo signin2(UserSigninDto dto){
         int result = 3;
         UserLoginVo vo = new UserLoginVo();

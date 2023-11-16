@@ -29,8 +29,8 @@ public class UserController {
     }
 
     // /api/user/2
-    @GetMapping("/{iuser}")
-    public int getUserInfo(@PathVariable int iuser) {
-        return 0;
+    @GetMapping("/{targetIuser}")
+    public UserProfileInfoVo getUserProfileInfo(@PathVariable int targetIuser) {
+        return service.getUserProfileInfo(targetIuser);
     }
 }
