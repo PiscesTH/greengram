@@ -47,7 +47,8 @@
     </select>
     
     <select id="selUserProfileInfo">
-        SELECT COUNT(ifeed) AS feedCnt, IFNULL(B.favCnt, 0) AS favCnt
+        SELECT COUNT(ifeed) AS feedCnt, IFNULL(B.favCnt, 0) AS favCnt,
+            C.nm, C.created_at AS createdAt
         FROM t_feed A
         INNER JOIN (
             SELECT B.iuser, COUNT(A.ifeed) AS favCnt
@@ -57,6 +58,8 @@
             AND B.iuser = #{iuser}
             ) B
         ON A.iuser = B.iuser
+        JOIN t_user C
+        ON A.iuser = C.iuser
         WHERE A.iuser = #{iuser}
     </select>
 </mapper>

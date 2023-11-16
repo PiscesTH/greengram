@@ -8,4 +8,6 @@ import lombok.Getter;
 public class UserProfileInfoVo {
     private int feedCnt;
     private int favCnt;
+    private String nm;
+    private String createdAt;
 }
