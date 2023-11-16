@@ -3,17 +3,17 @@ package com.green.greengram.feed.model;
 import lombok.Getter;
 
 @Getter
-public class FeedSelDtoPrca {
+public class FeedSelDtoPrac {
     private int startIdx;
     private int rowCount;
 
-    private FeedSelDtoPrca(int startIdx, int rowCount) { //private 생성자
+    private FeedSelDtoPrac(int startIdx, int rowCount) { //private 생성자
         this.startIdx = startIdx;
         this.rowCount = rowCount;
     }
 
-    public static FeedSelDtoPrca.builder builder() {
-        return new FeedSelDtoPrca.builder();
+    public static FeedSelDtoPrac.builder builder() {
+        return new FeedSelDtoPrac.builder();
     }
 
     public static class builder {
@@ -33,8 +33,8 @@ public class FeedSelDtoPrca {
             return this;
         }
 
-        public FeedSelDtoPrca build() {
-            return new FeedSelDtoPrca(startIdx, rowCount);
+        public FeedSelDtoPrac build() {
+            return new FeedSelDtoPrac(startIdx, rowCount);
         }
     }
 }

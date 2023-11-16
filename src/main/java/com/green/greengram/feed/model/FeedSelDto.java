@@ -8,5 +8,6 @@ import lombok.Getter;
 public class FeedSelDto {
     private int startIdx;
     private int rowCount;
-    private int iuser;
+    private int loginedIuser;   //로그인한 iuser
+    private int targetIuser;    //보고자하는 프로필 주인 iuser
 }

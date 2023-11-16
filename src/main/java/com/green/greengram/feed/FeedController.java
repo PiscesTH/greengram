@@ -20,8 +20,14 @@ public class FeedController {
 
     @GetMapping
     public List<FeedSelVo> getFeed(int page, int iuser) {
-        return service.getFeed(page, iuser);
+        return service.getFeed(page, iuser, 0);
+        //targetIuser = 0 >> 모든 피드 보겠다는 의미로 사용
         //http://localhost:8080/api/feed?page=3 브라우저 로 요청하면 page = 3 저장됨.
+    }
+
+    @GetMapping("/{targetIuser}")
+    public List<FeedSelVo> getFeed(int page, int loginedIuser, @PathVariable int targetIuser) {
+        return service.getFeed(page, loginedIuser, targetIuser);
     }
 
     @GetMapping("/{ifeed}/fav")

@@ -22,6 +22,8 @@
         </foreach>
     </insert>
 
+    <!-- 로그인한 iuser, 보고자하는 프로필 주인 iuser(분기조건)필요. -->
+    <!-- 보고자하는 프로필 없으면 iuser = 0 >> 원래 쿼리문 사용 -->
     <select id="selFeed">
         SELECT A.ifeed, A.contents, A.location, A.iuser,
             B.nm AS writer, A.created_at AS createdAt,
@@ -31,7 +33,10 @@
         ON A.iuser = B.iuser
         LEFT JOIN t_favorite C
         ON A.iuser = C.iuser
-        AND C.iuser = #{iuser}
+        AND C.iuser = #{loginedIuser}
+        <if test="targetIuser > 0">
+            WHERE A.iuser = #{targetIuser}
+        </if>
         ORDER BY A.ifeed DESC
         LIMIT #{startIdx}, #{rowCount}
     </select>
